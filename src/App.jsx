@@ -23,8 +23,9 @@ export default function App() {
   };
 
   const handleCheckAll = () => {
+    const allCompleted = items.every((item) => item.completed);
     const newItems = items.map((item) => {
-      return { ...item, completed: true };
+      return { ...item, completed: !allCompleted };
     });
     setItems(newItems);
   };
