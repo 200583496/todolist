@@ -7,6 +7,8 @@ export default function Header({ handleAddItem }) {
         alert("Please enter a task name");
       } else {
         handleAddItem(event.target.value);
+        // clear the input field
+        event.target.value = "";
       }
     }
   };
