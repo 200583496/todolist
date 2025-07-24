@@ -1,0 +1,11 @@
+.todo-item:hover {
+  background-color: #ddd;
+}
+
+.todo-item .delete-btn {
+  display: none;
+}
+
+.todo-item:hover .delete-btn {
+  display: block;
+}

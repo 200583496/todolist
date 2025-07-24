@@ -1,14 +1,15 @@
 import React from "react";
+import "./index.css";
 
-export default function List({ items, handleCheckboxChange }) {
-  const handleDelete = (id) => {
-    console.log(id);
-  };
-
+export default function List({
+  items,
+  handleCheckboxChange,
+  handleDeleteItem,
+}) {
   return (
     <ul className="todo-main">
       {items.map((item) => (
-        <li key={item.id}>
+        <li key={item.id} className="todo-item">
           <label>
             <input
               type="checkbox"
@@ -18,9 +19,8 @@ export default function List({ items, handleCheckboxChange }) {
             <span>{item.name}</span>
           </label>
           <button
-            className="btn btn-danger"
-            style={{ display: "none" }}
-            onClick={() => handleDelete(item.id)}
+            className="btn btn-danger delete-btn"
+            onClick={() => handleDeleteItem(item.id)}
           >
             Delete
           </button>

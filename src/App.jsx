@@ -35,7 +35,15 @@ export default function App() {
   };
 
   const handleAddItem = (name) => {
-    const newItems = [...items, { id: items.length + 1, name, completed: false }];
+    const newItems = [
+      ...items,
+      { id: items.length + 1, name, completed: false },
+    ];
+    setItems(newItems);
+  };
+
+  const handleDeleteItem = (id) => {
+    const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
   };
 
@@ -43,7 +51,11 @@ export default function App() {
     <div className="todo-container">
       <div className="todo-wrap">
         <Header handleAddItem={handleAddItem} />
-        <List items={items} handleCheckboxChange={handleCheckboxChange} />
+        <List
+          items={items}
+          handleCheckboxChange={handleCheckboxChange}
+          handleDeleteItem={handleDeleteItem}
+        />
         <Footer
           items={items}
           handleCheckAll={handleCheckAll}
