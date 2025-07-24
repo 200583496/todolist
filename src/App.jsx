@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -7,9 +8,9 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const [items, setItems] = useState([
-    { id: 1, name: "assignment 1", completed: true },
-    { id: 2, name: "quiz #2", completed: true },
-    { id: 3, name: "quiz #3", completed: false },
+    { id: uuidv4(), name: "assignment 1", completed: true },
+    { id: uuidv4(), name: "quiz #2", completed: true },
+    { id: uuidv4(), name: "quiz #3", completed: false },
   ]);
 
   const handleCheckboxChange = (id) => {
@@ -36,10 +37,7 @@ export default function App() {
   };
 
   const handleAddItem = (name) => {
-    const newItems = [
-      ...items,
-      { id: items.length + 1, name, completed: false },
-    ];
+    const newItems = [...items, { id: uuidv4(), name, completed: false }];
     setItems(newItems);
   };
 
